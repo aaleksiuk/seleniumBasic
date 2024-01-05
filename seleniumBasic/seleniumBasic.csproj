@@ -53,6 +53,7 @@
   <ItemGroup>
     <Compile Include="FillForm.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TestBase.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Fixtures\file.jpg">
