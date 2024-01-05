@@ -79,8 +79,6 @@ namespace seleniumBasic2
             //submit
             driver.FindElement(By.CssSelector("button[type='submit']")).Click();
 
-            Assert.NotNull(driver.FindElement(By.CssSelector("button[type='submit']")));
-
             ////check "Form send with success"
             Assert.NotNull(driver.FindElement(By.Id("validator-message")));
             string asIS = driver.FindElement(By.Id("validator-message")).Text;
