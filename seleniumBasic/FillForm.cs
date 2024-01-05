@@ -8,28 +8,13 @@ using System.Threading.Tasks;
 using Xunit;
 using Xunit.Repeat;
 
-namespace seleniumBasic2
+namespace SeleniumBasic
 {
-    public class FillForm : IDisposable
+    public class FillForm : TestBase, IDisposable
     {
-        private readonly IWebDriver driver;
-
-        public FillForm()
-        {
-            var options = new ChromeOptions();
-            options.AddArgument("start-maximized");
-            driver = new ChromeDriver(options);
-            driver.Navigate().GoToUrl("http://www.seleniumui.moderntester.pl/form.php");
-        }
-
-        public void Dispose()
-        {
-            driver.Quit();
-        }
-
         [Theory] //check "Form send with success"
         [Repeat(30)]
-        public void Successfully( int iterationNumber)
+        public void Successfully(int iterationNumber)
         {
             Random r = new Random();
 
@@ -43,8 +28,8 @@ namespace seleniumBasic2
             SetEmail("mail@mail.com");
 
             //sex
-            int count = driver.FindElements(By.CssSelector("[name=gridRadiosSex]")).Count();
-            int rInt = r.Next(0, count);
+            var count = driver.FindElements(By.CssSelector("[name=gridRadiosSex]")).Count();
+            var rInt = r.Next(0, count);
             driver.FindElements(By.CssSelector("[name=gridRadiosSex]"))[rInt].Click();
 
             //age
@@ -81,12 +66,11 @@ namespace seleniumBasic2
 
             Assert.NotNull(driver.FindElement(By.CssSelector("button[type='submit']")));
 
-            ////check "Form send with success"
+            //check "Form send with success"
             Assert.NotNull(driver.FindElement(By.Id("validator-message")));
-            string asIS = driver.FindElement(By.Id("validator-message")).Text;
-            string expected = "Form send with success";
-            Assert.Equal(asIS, expected);
-
+            var acutalMsg = driver.FindElement(By.Id("validator-message")).Text;
+            var expectedMsg = "Form send with success";
+            Assert.Equal(acutalMsg, expectedMsg);
         }
 
         private void SetFirstName(string text)
@@ -101,6 +85,5 @@ namespace seleniumBasic2
         {
             driver.FindElement(By.CssSelector("#inputEmail3")).SendKeys(text);
         }
-
     }
 }
