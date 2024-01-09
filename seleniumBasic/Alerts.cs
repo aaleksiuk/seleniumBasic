@@ -1,17 +1,17 @@
 ﻿using FluentAssertions;
 using OpenQA.Selenium;
 using SeleniumBasic;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Xunit;
+using Xunit.Abstractions;
 
 namespace seleniumBasic
 {
     public class Alerts : TestBase
     {
+        public Alerts(ITestOutputHelper output) : base(output)
+        {
+        }
+
         [Fact]
         public void SimpleAlertPopUp()
         {

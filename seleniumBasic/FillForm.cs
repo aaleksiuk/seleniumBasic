@@ -1,17 +1,19 @@
 ﻿using OpenQA.Selenium;
-using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Support.UI;
 using System;
 using System.IO;
 using System.Linq;
-using System.Threading.Tasks;
 using Xunit;
-using Xunit.Repeat;
+using Xunit.Abstractions;
 
 namespace SeleniumBasic
 {
     public class FillForm : TestBase
     {
+        public FillForm(ITestOutputHelper output) : base(output)
+        {
+        }
+
         [Fact] //check "Form send with success"
         //[Repeat(30)]
         public void Successfully()

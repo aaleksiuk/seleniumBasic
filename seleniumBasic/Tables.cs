@@ -1,25 +1,37 @@
-﻿using FluentAssertions;
-using OpenQA.Selenium;
+﻿using OpenQA.Selenium;
 using SeleniumBasic;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Xunit;
+using Xunit.Abstractions;
 
 namespace seleniumBasic
 {
     public class Tables : TestBase
     {
-        [Fact]
-        public void SimpleAlertPopUp()
+        public Tables(ITestOutputHelper output) : base(output)
         {
-            var expectedMsg = "OK button pressed";
-            driver.Navigate().GoToUrl("http://www.seleniumui.moderntester.pl/alerts.php");
-            driver.FindElement(By.CssSelector("#simple-alert")).Click();
-            driver.SwitchTo().Alert().Accept();
-            expectedMsg.Should().Be(expectedMsg);
+        }
+
+        [Fact]
+        public void TablesPeaksInSwitzerland()
+        {
+            driver.Navigate().GoToUrl("http://www.seleniumui.moderntester.pl/table.php");
+
+            var definedCountry = "Switzerland";
+            int definedHeight = 4000;
+
+            var rows = driver.FindElements(By.CssSelector("table tbody tr"));
+            foreach (IWebElement row in rows)
+            {
+                int rank = int.Parse(row.FindElement(By.CssSelector("th")).Text);
+                var peak = row.FindElement(By.CssSelector("td:nth-child(2)")).Text;
+                var state = row.FindElement(By.CssSelector("td:nth-child(4)")).Text;
+                int height = int.Parse(row.FindElement(By.CssSelector("td:nth-child(5)")).Text);
+
+                if (state.Contains(definedCountry) && (height > definedHeight))
+                {
+                    output.WriteLine(rank + " " + peak + " " + height);
+                }
+            }
         }
     }
 }

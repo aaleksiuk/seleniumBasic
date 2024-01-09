@@ -1,17 +1,18 @@
 ﻿using SeleniumBasic;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Xunit;
-using FluentAssertions;
 using OpenQA.Selenium;
+using Xunit.Abstractions;
 
 namespace seleniumBasic
 {
     public class Iframes : TestBase
     {
+        public Iframes(ITestOutputHelper output) : base(output)
+        {
+        }
+
         [Fact]
         public void SwitchFrames()
         {
