@@ -10,12 +10,13 @@ using Xunit.Repeat;
 
 namespace SeleniumBasic
 {
-    public class FillForm : TestBase, IDisposable
+    public class FillForm : TestBase
     {
-        [Theory] //check "Form send with success"
-        [Repeat(30)]
-        public void Successfully(int iterationNumber)
+        [Fact] //check "Form send with success"
+        //[Repeat(30)]
+        public void Successfully()
         {
+            driver.Navigate().GoToUrl("http://www.seleniumui.moderntester.pl/form.php");
             Random r = new Random();
 
             //name

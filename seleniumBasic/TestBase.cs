@@ -1,9 +1,10 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using System;
 
 namespace SeleniumBasic
 {
-    public abstract class TestBase
+    public abstract class TestBase : IDisposable
     {
         protected readonly IWebDriver driver;
         public TestBase()
@@ -11,7 +12,6 @@ namespace SeleniumBasic
             var options = new ChromeOptions();
             options.AddArgument("start-maximized");
             driver = new ChromeDriver(options);
-            driver.Navigate().GoToUrl("http://www.seleniumui.moderntester.pl/form.php");
         }
 
         public void Dispose()
