@@ -1,6 +1,5 @@
 ﻿using OpenQA.Selenium;
 using SeleniumBasic;
-using System;
 using Xunit;
 using Xunit.Abstractions;
 
@@ -17,7 +16,7 @@ namespace seleniumBasic.Widgets
         {
             driver.Navigate().GoToUrl("http://www.seleniumui.moderntester.pl/tooltip.php");
             IWebElement age = driver.FindElement(By.CssSelector("#age"));
-            var actualTooltip = age.GetAttribute("title");
+            string actualTooltip = age.GetAttribute("title");
             output.WriteLine(actualTooltip);
         }
     }

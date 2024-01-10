@@ -1,10 +1,9 @@
-﻿using OpenQA.Selenium.Interactions;
+﻿using FluentAssertions;
 using OpenQA.Selenium;
-using Xunit.Abstractions;
-using Xunit;
+using OpenQA.Selenium.Interactions;
 using SeleniumBasic;
-using OpenQA.Selenium.Support.UI;
-using FluentAssertions;
+using Xunit;
+using Xunit.Abstractions;
 
 namespace seleniumBasic.Interactions
 {
@@ -19,14 +18,14 @@ namespace seleniumBasic.Interactions
             driver.Navigate().GoToUrl("http://www.seleniumui.moderntester.pl/selectable.php");
 
             Actions actions = new Actions(driver);
-            var select1 = driver.FindElement(By.CssSelector("ol > li:nth-child(1)"));       
-            var select3 = driver.FindElement(By.CssSelector("ol > li:nth-child(3)"));
-            var select5 = driver.FindElement(By.CssSelector("ol > li:nth-child(5)"));
+            IWebElement select1 = driver.FindElement(By.CssSelector("ol > li:nth-child(1)"));
+            IWebElement select3 = driver.FindElement(By.CssSelector("ol > li:nth-child(3)"));
+            IWebElement select5 = driver.FindElement(By.CssSelector("ol > li:nth-child(5)"));
 
             actions.KeyDown(Keys.LeftControl).Click(select1).Click(select3).Click(select5).Perform();
 
-            var expectedMsg = "You've selected: #1 #3 #5.";
-            var acutalMsg = driver.FindElement(By.Id("feedback")).Text;
+            string expectedMsg = "You've selected: #1 #3 #5.";
+            string acutalMsg = driver.FindElement(By.Id("feedback")).Text;
             acutalMsg.Should().Be(expectedMsg);
         }
     }

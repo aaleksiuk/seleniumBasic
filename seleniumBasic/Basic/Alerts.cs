@@ -15,7 +15,7 @@ namespace seleniumBasic.Basic
         [Fact]
         public void SimpleAlertPopUp()
         {
-            var expectedMsg = "OK button pressed";
+            string expectedMsg = "OK button pressed";
             driver.Navigate().GoToUrl("http://www.seleniumui.moderntester.pl/alerts.php");
             driver.FindElement(By.CssSelector("#simple-alert")).Click();
             driver.SwitchTo().Alert().Accept();
@@ -25,8 +25,8 @@ namespace seleniumBasic.Basic
         [Fact]
         public void PromptAlertBox()
         {
-            var inputText = "Lord Vader";
-            var expectedMsg = "Hello" + inputText + "! How are you today";
+            string inputText = "Lord Vader";
+            string expectedMsg = "Hello" + inputText + "! How are you today";
             driver.Navigate().GoToUrl("http://www.seleniumui.moderntester.pl/alerts.php");
             driver.FindElement(By.CssSelector("#prompt-alert")).Click();
             driver.SwitchTo().Alert().SendKeys(Keys.Control + "a" + Keys.Delete);
@@ -37,8 +37,8 @@ namespace seleniumBasic.Basic
         [Fact]
         public void ConfirmAlertBox()
         {
-            var expectedMsg_Ok = "You pressed OK!";
-            var expectedMsg_Cancel = "You pressed Cancel!";
+            string expectedMsg_Ok = "You pressed OK!";
+            string expectedMsg_Cancel = "You pressed Cancel!";
             driver.Navigate().GoToUrl("http://www.seleniumui.moderntester.pl/alerts.php");
             driver.FindElement(By.CssSelector("#confirm-alert")).Click();
             driver.SwitchTo().Alert().Accept();

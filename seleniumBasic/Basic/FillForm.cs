@@ -31,8 +31,8 @@ namespace SeleniumBasic.Basic
             SetEmail("mail@mail.com");
 
             //sex
-            var count = driver.FindElements(By.CssSelector("[name=gridRadiosSex]")).Count();
-            var rInt = r.Next(0, count);
+            int count = driver.FindElements(By.CssSelector("[name=gridRadiosSex]")).Count();
+            int rInt = r.Next(0, count);
             driver.FindElements(By.CssSelector("[name=gridRadiosSex]"))[rInt].Click();
 
             //age
@@ -71,8 +71,8 @@ namespace SeleniumBasic.Basic
 
             //check "Form send with success"
             Assert.NotNull(driver.FindElement(By.Id("validator-message")));
-            var acutalMsg = driver.FindElement(By.Id("validator-message")).Text;
-            var expectedMsg = "Form send with success";
+            string acutalMsg = driver.FindElement(By.Id("validator-message")).Text;
+            string expectedMsg = "Form send with success";
             Assert.Equal(acutalMsg, expectedMsg);
         }
 

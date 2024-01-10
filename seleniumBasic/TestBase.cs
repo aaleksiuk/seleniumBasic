@@ -11,7 +11,7 @@ namespace SeleniumBasic
         protected readonly ITestOutputHelper output;
         public TestBase(ITestOutputHelper output)
         {
-            var options = new ChromeOptions();
+            ChromeOptions options = new ChromeOptions();
             options.AddArgument("start-maximized");
             driver = new ChromeDriver(options);
             this.output = output;

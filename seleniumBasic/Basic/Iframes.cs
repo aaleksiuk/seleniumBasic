@@ -1,8 +1,8 @@
-﻿using SeleniumBasic;
+﻿using OpenQA.Selenium;
+using SeleniumBasic;
 using System;
 using System.Linq;
 using Xunit;
-using OpenQA.Selenium;
 using Xunit.Abstractions;
 
 namespace seleniumBasic.Basic
@@ -30,8 +30,8 @@ namespace seleniumBasic.Basic
             driver.FindElement(By.CssSelector("#inputLogin")).SendKeys("stute");
             driver.FindElement(By.CssSelector("#inputPassword")).SendKeys("12341234");
 
-            var count = driver.FindElements(By.CssSelector("#inlineFormCustomSelectPref *")).Count();
-            var rInt = r.Next(1, count);
+            int count = driver.FindElements(By.CssSelector("#inlineFormCustomSelectPref *")).Count();
+            int rInt = r.Next(1, count);
             driver.FindElements(By.CssSelector("option"))[rInt].Click();
 
             count = driver.FindElements(By.CssSelector("[name=gridRadios]")).Count();
