@@ -16,7 +16,7 @@ namespace seleniumBasic.Basic
         [Fact]
         public void SwitchFrames()
         {
-            Random r = new Random();
+            var r = new Random();
             driver.Navigate().GoToUrl("http://automation-practice.emilos.pl/iframes.php");
 
             driver.SwitchTo().Frame("iframe1");
@@ -30,8 +30,8 @@ namespace seleniumBasic.Basic
             driver.FindElement(By.CssSelector("#inputLogin")).SendKeys("stute");
             driver.FindElement(By.CssSelector("#inputPassword")).SendKeys("12341234");
 
-            int count = driver.FindElements(By.CssSelector("#inlineFormCustomSelectPref *")).Count();
-            int rInt = r.Next(1, count);
+            var count = driver.FindElements(By.CssSelector("#inlineFormCustomSelectPref *")).Count();
+            var rInt = r.Next(1, count);
             driver.FindElements(By.CssSelector("option"))[rInt].Click();
 
             count = driver.FindElements(By.CssSelector("[name=gridRadios]")).Count();

@@ -19,7 +19,7 @@ namespace SeleniumBasic.Basic
         public void Successfully()
         {
             driver.Navigate().GoToUrl("http://www.seleniumui.moderntester.pl/form.php");
-            Random r = new Random();
+            var r = new Random();
 
             //name
             SetFirstName("Jan");
@@ -31,8 +31,8 @@ namespace SeleniumBasic.Basic
             SetEmail("mail@mail.com");
 
             //sex
-            int count = driver.FindElements(By.CssSelector("[name=gridRadiosSex]")).Count();
-            int rInt = r.Next(0, count);
+            var count = driver.FindElements(By.CssSelector("[name=gridRadiosSex]")).Count();
+            var rInt = r.Next(0, count);
             driver.FindElements(By.CssSelector("[name=gridRadiosSex]"))[rInt].Click();
 
             //age
@@ -52,15 +52,15 @@ namespace SeleniumBasic.Basic
             driver.FindElements(By.CssSelector("option"))[rInt].Click();
 
             //selenium_command
-            SelectElement select = new SelectElement(driver.FindElement(By.Id("selectSeleniumCommands")));
+            var select = new SelectElement(driver.FindElement(By.Id("selectSeleniumCommands")));
             select.SelectByValue("switch-commands");
             select.SelectByValue("wait-commands");
 
             //file
-            IWebElement fileInput = driver.FindElement(By.CssSelector("input[type=file]"));
+            var fileInput = driver.FindElement(By.CssSelector("input[type=file]"));
             //string baseDirectory = AppContext.BaseDirectory;
-            string relativePath = Path.Combine("Fixtures", "file.jpg");
-            string uploadFile = Path.GetFullPath(relativePath);
+            var relativePath = Path.Combine("Fixtures", "file.jpg");
+            var uploadFile = Path.GetFullPath(relativePath);
             //string uploadFile = Path.GetFullPath(Path.Combine(baseDirectory, relativePath));
             fileInput.SendKeys(uploadFile);
 
@@ -71,8 +71,8 @@ namespace SeleniumBasic.Basic
 
             //check "Form send with success"
             Assert.NotNull(driver.FindElement(By.Id("validator-message")));
-            string acutalMsg = driver.FindElement(By.Id("validator-message")).Text;
-            string expectedMsg = "Form send with success";
+            var acutalMsg = driver.FindElement(By.Id("validator-message")).Text;
+            var expectedMsg = "Form send with success";
             Assert.Equal(acutalMsg, expectedMsg);
         }
 

@@ -12,17 +12,18 @@ namespace seleniumBasic.Interactions
         public Droppable(ITestOutputHelper output) : base(output)
         {
         }
+
         [Fact]
         public void DroppableItem()
         {
             driver.Navigate().GoToUrl("http://www.seleniumui.moderntester.pl/droppable.php");
-            IWebElement drag = driver.FindElement(By.Id("draggable"));
-            IWebElement drop = driver.FindElement(By.Id("droppable"));
-            Actions actions = new Actions(driver);
+            var drag = driver.FindElement(By.Id("draggable"));
+            var drop = driver.FindElement(By.Id("droppable"));
+            var actions = new Actions(driver);
             actions.ClickAndHold(drag).MoveToElement(drop).Release().Perform();
-            string expectedMsg = "Dropped!";
+            var expectedMsg = "Dropped!";
 
-            string acutalMsg = driver.FindElement(By.CssSelector("p")).Text;///POPRAWIĆ!!!
+            var acutalMsg = driver.FindElement(By.CssSelector("#droppable p")).Text;
             acutalMsg.Should().Be(expectedMsg);
         }
     }

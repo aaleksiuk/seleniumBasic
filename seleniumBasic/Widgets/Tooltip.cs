@@ -15,8 +15,8 @@ namespace seleniumBasic.Widgets
         public void PrintOutMsgFromTooltip()
         {
             driver.Navigate().GoToUrl("http://www.seleniumui.moderntester.pl/tooltip.php");
-            IWebElement age = driver.FindElement(By.CssSelector("#age"));
-            string actualTooltip = age.GetAttribute("title");
+            var age = driver.FindElement(By.CssSelector("#age"));
+            var actualTooltip = age.GetAttribute("title");
             output.WriteLine(actualTooltip);
         }
     }

@@ -1,6 +1,7 @@
 ﻿using FluentAssertions;
 using OpenQA.Selenium;
 using SeleniumBasic;
+using System;
 using Xunit;
 using Xunit.Abstractions;
 
@@ -11,59 +12,36 @@ namespace seleniumBasic.Widgets
         public Slider(ITestOutputHelper output) : base(output)
         {
         }
+
         [Fact]
         public void MoveSlider()
         {
             driver.Navigate().GoToUrl("http://www.seleniumui.moderntester.pl/slider.php");
 
-            moveSlider(50);
-            currentPosition().Should().Be(50);
-            moveSlider(80);
-            currentPosition().Should().Be(80);
-            moveSlider(80);
-            currentPosition().Should().Be(80);
-            moveSlider(20);
-            currentPosition().Should().Be(20);
-            moveSlider(0);
-            currentPosition().Should().Be(0);
+            MoveSliderTo(50);
+            MoveSliderTo(80);
+            MoveSliderTo(80);
+            MoveSliderTo(20);
+            MoveSliderTo(0);
         }
 
-        private int currentPosition()
+        private int CurrentPosition()
         {
             return int.Parse(driver.FindElement(By.CssSelector("#custom-handle")).Text);
         }
 
-        private int moveSlider(int times)
+        private void MoveSliderTo(int desiredPosition)
         {
-            int acutalValue = currentPosition();
-            IWebElement Slider = driver.FindElement(By.CssSelector("#custom-handle"));
+            var currentPosition = CurrentPosition();
+            var counter = Math.Abs(desiredPosition - currentPosition);
+            var slider = driver.FindElement(By.CssSelector("#custom-handle"));
+            var keyToPress = (desiredPosition > currentPosition) ? Keys.ArrowRight : Keys.ArrowLeft;
 
-            for (int i = 0; i <= times; i++)
+            for (var i = 0; i < counter; i++)
             {
-                if (times > acutalValue)
-                {
-                    do
-                    {
-                        Slider.SendKeys(Keys.ArrowRight);
-                        acutalValue++;
-                    }
-                    while (times > acutalValue);
-                }
-                else if (times < acutalValue)
-                {
-                    do
-                    {
-                        Slider.SendKeys(Keys.ArrowLeft);
-                        times++;
-                    }
-                    while (times < acutalValue);
-                }
-                else
-                {
-                    break;
-                }
+                slider.SendKeys(keyToPress);
             }
-            return acutalValue;
+            CurrentPosition().Should().Be(desiredPosition);
         }
     }
 }
