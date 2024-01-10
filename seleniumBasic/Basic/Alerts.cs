@@ -49,8 +49,5 @@ namespace seleniumBasic.Basic
             driver.SwitchTo().Alert().Dismiss();
             expectedMsg_Cancel.Should().Be(expectedMsg_Cancel);
         }
-
-
-
     }
 }

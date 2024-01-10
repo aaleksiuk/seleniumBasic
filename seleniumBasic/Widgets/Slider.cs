@@ -35,7 +35,7 @@ namespace seleniumBasic.Widgets
 
         private int moveSlider(int times)
         {
-            int acutalValue = currentPosition();//int.Parse(driver.FindElement(By.CssSelector("#custom-handle")).Text);
+            int acutalValue = currentPosition();
             IWebElement Slider = driver.FindElement(By.CssSelector("#custom-handle"));
 
             for (int i = 0; i <= times; i++)

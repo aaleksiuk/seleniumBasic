@@ -57,10 +57,12 @@
     <Compile Include="Basic\Alerts.cs" />
     <Compile Include="Basic\FillForm.cs" />
     <Compile Include="Basic\Iframes.cs" />
+    <Compile Include="Interactions\Droppable.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Basic\Tables.cs" />
     <Compile Include="TestBase.cs" />
     <Compile Include="Basic\WindowsTabs.cs" />
+    <Compile Include="Interactions\Selectable.cs" />
     <Compile Include="Widgets\Slider.cs" />
     <Compile Include="Widgets\Tooltip.cs" />
   </ItemGroup>
