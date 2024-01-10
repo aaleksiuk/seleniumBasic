@@ -4,7 +4,7 @@ using SeleniumBasic;
 using Xunit;
 using Xunit.Abstractions;
 
-namespace seleniumBasic
+namespace seleniumBasic.Basic
 {
     public class Alerts : TestBase
     {

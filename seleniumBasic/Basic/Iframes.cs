@@ -5,7 +5,7 @@ using Xunit;
 using OpenQA.Selenium;
 using Xunit.Abstractions;
 
-namespace seleniumBasic
+namespace seleniumBasic.Basic
 {
     public class Iframes : TestBase
     {

@@ -3,7 +3,7 @@ using SeleniumBasic;
 using Xunit;
 using Xunit.Abstractions;
 
-namespace seleniumBasic
+namespace seleniumBasic.Basic
 {
     public class Tables : TestBase
     {
@@ -12,7 +12,7 @@ namespace seleniumBasic
         }
 
         [Fact]
-        public void TablesPeaksInSwitzerland()
+        public void TablePeaksInSwitzerland()
         {
             driver.Navigate().GoToUrl("http://www.seleniumui.moderntester.pl/table.php");
 
