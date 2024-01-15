@@ -36,7 +36,7 @@ namespace seleniumBasic.Other
 
             string[] expectedValuesText = { "Maths", "Arts" };
             var selectedValues = driver.FindElements(By.CssSelector(".subjects-auto-complete__multi-value__label")).Select(e => e.Text).ToArray();
-            var i= 0;
+            var i = 0;
             foreach (var value in selectedValues)
             {
                 expectedValuesText[i++].Should().Be(value.ToString());
