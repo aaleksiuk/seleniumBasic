@@ -13,7 +13,6 @@ namespace seleniumBasic.Other
         }
 
         [Fact]
-        [System.Obsolete]
         public void Action_HighSite()
         {
             driver.Navigate().GoToUrl("http://www.seleniumui.moderntester.pl/high-site.php");
@@ -24,22 +23,20 @@ namespace seleniumBasic.Other
                 if (driver.FindElements(By.CssSelector("#scroll-button")).Count > 0)
                 {
                     Printscreen("Action");
-                    break;
+                    return;
                 }
             }
+
+            Assert.Fail
         }
 
-        [System.Obsolete]
         private void Printscreen(string function)
         {
-
             var screenshot = (driver as ITakesScreenshot).GetScreenshot();
             screenshot.SaveAsFile("Screenshots\\screenshot_" + function + ".png", ScreenshotImageFormat.Png);
-            
         }
 
         [Fact]
-        [System.Obsolete]
         public void Js_HighSite()
         {
             driver.Navigate().GoToUrl("http://www.seleniumui.moderntester.pl/high-site.php");

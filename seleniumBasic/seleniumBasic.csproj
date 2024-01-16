@@ -58,6 +58,8 @@
     <Compile Include="Basic\FillForm.cs" />
     <Compile Include="Basic\Iframes.cs" />
     <Compile Include="Interactions\Droppable.cs" />
+    <Compile Include="Other\DemoQa.cs" />
+    <Compile Include="Other\HighSite.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Basic\Tables.cs" />
     <Compile Include="TestBase.cs" />
