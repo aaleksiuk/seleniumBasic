@@ -1,4 +1,5 @@
-﻿using OpenQA.Selenium;
+﻿using FluentAssertions;
+using OpenQA.Selenium;
 using SeleniumBasic;
 using System.Threading;
 using Xunit;
@@ -39,12 +40,14 @@ namespace seleniumBasic.Basic
                 if (originalWindow != window)
                 {
                     driver.SwitchTo().Window(window);
-                    var actualMsg = driver.FindElement(By.CssSelector("body")).Text;
                     break;
                 }
             }
             var expectedMsg = "Knowledge increases by sharing but not by saving. Please share this website with your friends and in your organization.";
-            
+            var actualMsg = driver.FindElement(By.CssSelector("body")).Text;
+
+            actualMsg.Should().Be(expectedMsg);
+
             driver.Close();
             driver.SwitchTo().Window(originalWindow);
 

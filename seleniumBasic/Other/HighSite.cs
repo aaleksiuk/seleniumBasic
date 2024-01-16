@@ -27,7 +27,7 @@ namespace seleniumBasic.Other
                 }
             }
 
-            Assert.Fail
+            Assert.Fail("Scroll-button not found");
         }
 
         private void Printscreen(string function)
@@ -40,7 +40,6 @@ namespace seleniumBasic.Other
         public void Js_HighSite()
         {
             driver.Navigate().GoToUrl("http://www.seleniumui.moderntester.pl/high-site.php");
-            Action_HighSite();
 
             for (var i = 0; i < 1000; i++)
             {
@@ -48,15 +47,17 @@ namespace seleniumBasic.Other
                 if (driver.FindElements(By.CssSelector("#scroll-button")).Count > 0)
                 {
                     Printscreen("Js");
-                    break;
+                    return;
                 }
             }
+
+            Assert.Fail("Scroll-button not found");
         }
 
         private void Scroll100px()
         {
             var actions = new Actions(driver);
-            _ = actions.ScrollByAmount(0, -100);
+            actions.ScrollByAmount(0, 100).Perform();
         }
         private void Scroll100px_js(IWebDriver driver)
         {
