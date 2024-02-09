@@ -1,8 +1,13 @@
 ﻿using FluentAssertions;
 using OpenQA.Selenium;
+using OpenQA.Selenium.Support.UI;
 using SeleniumBasic;
+using SeleniumExtras.WaitHelpers;
+using System;
+using System.Security.Policy;
 using Xunit;
 using Xunit.Abstractions;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace seleniumBasic.Basic
 {
@@ -48,6 +53,19 @@ namespace seleniumBasic.Basic
             driver.FindElement(By.CssSelector("#confirm-alert")).Click();
             driver.SwitchTo().Alert().Dismiss();
             expectedMsg_Cancel.Should().Be(expectedMsg_Cancel);
+        }
+
+        [Fact]
+        public async void DelayedAlert()
+        {
+            var expectedMsg_Pressed = "OK button pressed";
+            driver.Navigate().GoToUrl("http://www.seleniumui.moderntester.pl/alerts.php");
+            driver.FindElement(By.CssSelector("#delayed-alert")).Click();
+            WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(5));
+            wait.Until(ExpectedConditions.AlertIsPresent());
+            driver.SwitchTo().Alert().Accept();
+            driver.FindElement(By.CssSelector("#delayed-alert-label"));
+            expectedMsg_Pressed.Should().Be(expectedMsg_Pressed);
         }
     }
 }
