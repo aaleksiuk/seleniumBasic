@@ -68,6 +68,7 @@
     <Compile Include="TestBase.cs" />
     <Compile Include="Basic\WindowsTabs.cs" />
     <Compile Include="Interactions\Selectable.cs" />
+    <Compile Include="Widgets\Accordion.cs" />
     <Compile Include="Widgets\Menu.cs" />
     <Compile Include="Widgets\ModalDialog.cs" />
     <Compile Include="Widgets\Slider.cs" />
