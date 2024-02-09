@@ -69,8 +69,11 @@
     <Compile Include="Basic\WindowsTabs.cs" />
     <Compile Include="Interactions\Selectable.cs" />
     <Compile Include="Widgets\Accordion.cs" />
+    <Compile Include="Widgets\Autocomplete.cs" />
+    <Compile Include="Widgets\Datepicker TODO.cs" />
     <Compile Include="Widgets\Menu.cs" />
     <Compile Include="Widgets\ModalDialog.cs" />
+    <Compile Include="Widgets\Progressbar.cs" />
     <Compile Include="Widgets\Slider.cs" />
     <Compile Include="Widgets\Tooltip.cs" />
   </ItemGroup>
