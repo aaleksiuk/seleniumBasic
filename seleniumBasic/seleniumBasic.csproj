@@ -69,6 +69,7 @@
     <Compile Include="Basic\WindowsTabs.cs" />
     <Compile Include="Interactions\Selectable.cs" />
     <Compile Include="Widgets\Menu.cs" />
+    <Compile Include="Widgets\ModalDialog.cs" />
     <Compile Include="Widgets\Slider.cs" />
     <Compile Include="Widgets\Tooltip.cs" />
   </ItemGroup>
