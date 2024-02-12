@@ -6,6 +6,7 @@ using SeleniumExtras.WaitHelpers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Xml.Linq;
 using Xunit;
 using Xunit.Abstractions;
 
@@ -38,9 +39,7 @@ namespace seleniumBasic.Widgets
             var presentedVal = results[rInt].ToString();
             driver.FindElements(By.XPath("//div[@class='ui-menu-item-wrapper']"))[rInt].Click();
 
-            IJavaScriptExecutor js = (IJavaScriptExecutor)driver;
-            String method = "return document.getElementById('search').value;";
-            String searchPhrase = js.ExecuteScript(method).ToString();
+            var searchPhrase = driver.FindElement(By.Id("search")).GetAttribute("value");
             searchPhrase.Should().Be(presentedVal);
         }
     }
