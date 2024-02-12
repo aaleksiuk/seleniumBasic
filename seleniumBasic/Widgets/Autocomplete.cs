@@ -35,12 +35,13 @@ namespace seleniumBasic.Widgets
             var r = new Random();
             var count = results.Count();
             var rInt = r.Next(1, count);
+            var presentedVal = results[rInt].ToString();
             driver.FindElements(By.XPath("//div[@class='ui-menu-item-wrapper']"))[rInt].Click();
 
-            var presentedVal = results[rInt].ToString();
-            ExpectedConditions.ElementSelectionStateToBe
-            //Check if text in search input is the same as text of the selected option
-
+            IJavaScriptExecutor js = (IJavaScriptExecutor)driver;
+            String method = "return document.getElementById('search').value;";
+            String searchPhrase = js.ExecuteScript(method).ToString();
+            searchPhrase.Should().Be(presentedVal);
         }
     }
 }
