@@ -60,6 +60,7 @@
     <Compile Include="Basic\Alerts.cs" />
     <Compile Include="Basic\FillForm.cs" />
     <Compile Include="Basic\Iframes.cs" />
+    <Compile Include="Interactions\Draggable.cs" />
     <Compile Include="Interactions\Droppable.cs" />
     <Compile Include="Other\DemoQa.cs" />
     <Compile Include="Other\HighSite.cs" />
@@ -74,6 +75,7 @@
     <Compile Include="Widgets\Menu.cs" />
     <Compile Include="Widgets\ModalDialog.cs" />
     <Compile Include="Widgets\Progressbar.cs" />
+    <Compile Include="Widgets\Selectmenu.cs" />
     <Compile Include="Widgets\Slider.cs" />
     <Compile Include="Widgets\Tooltip.cs" />
   </ItemGroup>
