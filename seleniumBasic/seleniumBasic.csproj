@@ -62,6 +62,7 @@
     <Compile Include="Basic\Iframes.cs" />
     <Compile Include="Interactions\Draggable.cs" />
     <Compile Include="Interactions\Droppable.cs" />
+    <Compile Include="Interactions\Resizable.cs" />
     <Compile Include="Other\DemoQa.cs" />
     <Compile Include="Other\HighSite.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
