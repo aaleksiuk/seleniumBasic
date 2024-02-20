@@ -23,7 +23,6 @@ namespace seleniumBasic.Interactions
             wait.Until(ExpectedConditions.ElementIsVisible(By.XPath("//div[@class='ui-widget-content ui-resizable']")));
             var resizableElement = driver.FindElement(By.XPath("//*[@class='ui-resizable-handle ui-resizable-e']"));
             new Actions(driver).ClickAndHold(resizableElement).MoveByOffset(100, 0).Perform();
-            Console.WriteLine("dupa");
         }
         [Fact]
         public void ResizeWindowToTheBottom()
