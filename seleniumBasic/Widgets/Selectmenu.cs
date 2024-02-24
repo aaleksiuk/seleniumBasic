@@ -1,9 +1,9 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using SeleniumBasic;
+using SeleniumExtras.WaitHelpers;
 using System;
 using System.Linq;
-using System.Threading;
 using Xunit;
 using Xunit.Abstractions;
 
@@ -32,18 +32,20 @@ namespace seleniumBasic.Widgets
             driver.FindElement(By.CssSelector(speedId)).Click();
         }
 
-        [Fact] //change!!!
+        [Fact]
         public void SelectFileFromText()
         {
             driver.Navigate().GoToUrl("http://www.seleniumui.moderntester.pl/selectmenu.php");
             var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
-            // var count = driver.FindElements(By.CssSelector("#speed *")).Count();
-            var filesButton = driver.FindElement(By.CssSelector("#files-button"));
-            filesButton.Click();
+
+            driver.FindElement(By.Id("files-button")).Click();
             wait.Until(d => d.FindElement(By.CssSelector("#files-button")).GetAttribute("aria-expanded") == "true");
 
-            var searchPhrase = driver.FindElement(By.Id("search")).GetAttribute("value");
-            Thread.Sleep(1000);
+            wait.Until(ExpectedConditions.ElementIsVisible(By.Id("files-menu")));
+
+            var text = "ui.jQuery.js";
+            var liElement = driver.FindElement(By.XPath($"//li[@class='ui-menu-item']//div[text()='{text}']"));
+            liElement.Click();
         }
 
         [Fact]

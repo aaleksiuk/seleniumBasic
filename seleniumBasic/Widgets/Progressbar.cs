@@ -19,7 +19,6 @@ namespace seleniumBasic.Widgets
         {
             driver.Navigate().GoToUrl("http://www.seleniumui.moderntester.pl/progressbar.php");
             var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
-            //wait.Until(d => d.FindElement(By.XPath("//div[@class='progress-label']")).GetAttribute("value") == "Complete!");
             wait.Until(d => d.FindElement(By.XPath("//div[contains(text(),'Complete!')][@class='progress-label']")));
 
         }

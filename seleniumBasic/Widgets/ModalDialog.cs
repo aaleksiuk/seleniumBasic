@@ -19,7 +19,6 @@ namespace seleniumBasic.Widgets
         [Fact]
         public void ModalDialogCreateUser()
         {
-
             driver.Navigate().GoToUrl("http://www.seleniumui.moderntester.pl/modal-dialog.php");
             driver.FindElement(By.CssSelector("#create-user")).Click();
             var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(5));
@@ -60,5 +59,4 @@ namespace seleniumBasic.Widgets
             driver.FindElement(By.CssSelector("#password")).SendKeys(text);
         }
     }
-
 }
