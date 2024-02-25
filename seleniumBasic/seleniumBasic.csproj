@@ -76,7 +76,7 @@
     <Compile Include="Interactions\Selectable.cs" />
     <Compile Include="Widgets\Accordion.cs" />
     <Compile Include="Widgets\Autocomplete.cs" />
-    <Compile Include="Widgets\Datepicker TODO.cs" />
+    <Compile Include="Widgets\Datepicker.cs" />
     <Compile Include="Widgets\Menu.cs" />
     <Compile Include="Widgets\ModalDialog.cs" />
     <Compile Include="Widgets\Progressbar.cs" />
