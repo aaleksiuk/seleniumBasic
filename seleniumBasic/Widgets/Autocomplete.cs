@@ -4,9 +4,7 @@ using OpenQA.Selenium.Support.UI;
 using SeleniumBasic;
 using SeleniumExtras.WaitHelpers;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Xml.Linq;
 using Xunit;
 using Xunit.Abstractions;
 
@@ -32,7 +30,7 @@ namespace seleniumBasic.Widgets
             {
                 output.WriteLine(results[i++].ToString());
             }
-            
+
             var r = new Random();
             var count = results.Count();
             var rInt = r.Next(1, count);

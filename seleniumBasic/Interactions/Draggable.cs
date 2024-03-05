@@ -21,11 +21,9 @@ namespace seleniumBasic.Interactions
             var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
 
             var windowX = driver.Manage().Window.Size.Width;
-            var windowY = driver.Manage().Window.Size.Height;
 
             var draggableElement = driver.FindElement(By.CssSelector("#draggable"));
             var elementLengh = draggableElement.Size.Width;
-            var elementHight = draggableElement.Size.Height;
 
             var localizationX = draggableElement.Location.X;
             var localizationY = draggableElement.Location.Y;
@@ -38,7 +36,6 @@ namespace seleniumBasic.Interactions
         public void DragSquareToBottomRightCornerOfPage()
         {
             driver.Navigate().GoToUrl("http://www.seleniumui.moderntester.pl/draggable.php");
-            var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
 
             var windowX = driver.Manage().Window.Size.Width;
             var windowY = driver.Manage().Window.Size.Height;
@@ -59,14 +56,11 @@ namespace seleniumBasic.Interactions
         public void DragSquareToTopCenterOfPage()
         {
             driver.Navigate().GoToUrl("http://www.seleniumui.moderntester.pl/draggable.php");
-            var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
 
             var windowX = driver.Manage().Window.Size.Width;
-            var windowY = driver.Manage().Window.Size.Height;
 
             var draggableElement = driver.FindElement(By.CssSelector("#draggable"));
             var elementLengh = draggableElement.Size.Width;
-            var elementHight = draggableElement.Size.Height;
 
             var localizationX = draggableElement.Location.X;
             var localizationY = draggableElement.Location.Y;
@@ -79,14 +73,8 @@ namespace seleniumBasic.Interactions
         public void DragSquareToBottomLeftCornerOfPage()
         {
             driver.Navigate().GoToUrl("http://www.seleniumui.moderntester.pl/draggable.php");
-            var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
-
-            var windowX = driver.Manage().Window.Size.Width;
-            var windowY = driver.Manage().Window.Size.Height;
 
             var draggableElement = driver.FindElement(By.CssSelector("#draggable"));
-            var elementLengh = draggableElement.Size.Width;
-            var elementHight = draggableElement.Size.Height;
 
             var localizationX = draggableElement.Location.X;
             var localizationY = draggableElement.Location.Y;

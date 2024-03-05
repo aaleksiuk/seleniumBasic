@@ -21,8 +21,10 @@ namespace seleniumBasic.Interactions
         public void SortByMathchShuffledTable()
         {
             driver.Navigate().GoToUrl("http://www.seleniumui.moderntester.pl/sortable.php");
+
             var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
             wait.Until(ExpectedConditions.ElementIsVisible(By.XPath("//*[@id='sortable']")));
+
             IList<IWebElement> originalList = driver.FindElements(By.XPath("//*[@id='sortable']/li"));
 
             var shuffledList = Shuffle(originalList.ToList());

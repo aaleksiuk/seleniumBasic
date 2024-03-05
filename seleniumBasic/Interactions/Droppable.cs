@@ -20,6 +20,7 @@ namespace seleniumBasic.Interactions
             var drag = driver.FindElement(By.Id("draggable"));
             var drop = driver.FindElement(By.Id("droppable"));
             var actions = new Actions(driver);
+
             actions.ClickAndHold(drag).MoveToElement(drop).Release().Perform();
             var expectedMsg = "Dropped!";
 

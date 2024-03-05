@@ -1,16 +1,10 @@
-﻿using SeleniumBasic;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Xunit.Abstractions;
-using Xunit;
-using static System.Net.Mime.MediaTypeNames;
-using System.Security.Policy;
-using OpenQA.Selenium;
+﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
+using SeleniumBasic;
 using SeleniumExtras.WaitHelpers;
+using System;
+using Xunit;
+using Xunit.Abstractions;
 
 namespace seleniumBasic.Widgets
 {
@@ -24,7 +18,7 @@ namespace seleniumBasic.Widgets
         public void MenuItem()
         {
             driver.Navigate().GoToUrl("http://www.seleniumui.moderntester.pl/menu-item.php");
-            WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(5));
+            var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(5));
             driver.FindElement(By.CssSelector("#ui-id-9")).Click();
             wait.Until(ExpectedConditions.ElementIsVisible(By.CssSelector("#ui-id-13")));
             driver.FindElement(By.CssSelector("#ui-id-13")).Click();
