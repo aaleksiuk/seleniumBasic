@@ -17,7 +17,8 @@ namespace seleniumBasic.Other
         {
             driver.Navigate().GoToUrl("http://www.seleniumui.moderntester.pl/high-site.php");
 
-            for (var i = 0; i < 1000; i++)
+            var height = driver.Manage().Window.Size.Height;
+            for (var i = 0; i < height; i++)
             {
                 Scroll100px();
                 if (driver.FindElements(By.CssSelector("#scroll-button")).Count > 0)
@@ -33,15 +34,15 @@ namespace seleniumBasic.Other
         private void Printscreen(string function)
         {
             var screenshot = (driver as ITakesScreenshot).GetScreenshot();
-            screenshot.SaveAsFile("Screenshots\\screenshot_" + function + ".png", ScreenshotImageFormat.Png);
+            screenshot.SaveAsFile("Screenshots\\screenshot_" + function + ".png");
         }
 
         [Fact]
         public void Js_HighSite()
         {
             driver.Navigate().GoToUrl("http://www.seleniumui.moderntester.pl/high-site.php");
-
-            for (var i = 0; i < 1000; i++)
+            var height = driver.Manage().Window.Size.Height;
+            for (var i = 0; i < height; i++)
             {
                 Scroll100px_js(driver);
                 if (driver.FindElements(By.CssSelector("#scroll-button")).Count > 0)
