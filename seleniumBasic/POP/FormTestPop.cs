@@ -8,10 +8,12 @@ namespace seleniumBasic.POP
     public class FormTestPop
     {
         protected readonly FormPage formPage;
+        private readonly Random _random;
 
         public FormTestPop(FormPage _formPage)
         {
             formPage = _formPage;
+            _random = new Random();
         }
 
         public void SetFirstName(string firstName)
@@ -29,9 +31,8 @@ namespace seleniumBasic.POP
         public void SetSex()
         {
             var count = formPage.Sex.Count();
-            var r = new Random();
-            var rInt = r.Next(0, count);
-            formPage.Sex[rInt].Click();
+            var randomIndex = _random.Next(0, count);
+            formPage.Sex[randomIndex].Click();
         }
         public void SetAge(string age)
         {
@@ -40,16 +41,15 @@ namespace seleniumBasic.POP
         public void SetRandomExperience()
         {
             var count = formPage.Experience.Count();
-            var r = new Random();
-            var rInt = r.Next(0, count);
-            formPage.Experience[rInt].Click();
+            var randomIndex = _random.Next(0, count);
+            formPage.Experience[randomIndex].Click();
         }
         public void SelectRandomProfession()
         {
             var count = formPage.Professions.Count();
-            var r = new Random();
-            var rInt = r.Next(0, count);
-            formPage.Professions[rInt].Click();
+
+            var randomIndex = _random.Next(0, count);
+            formPage.Professions[randomIndex].Click();
         }
         public void SelectContinent(string continent)
         {
@@ -68,11 +68,13 @@ namespace seleniumBasic.POP
             //    }
             //}
         }
-        public void SetSeleniumCommand(string firstCommand, string secondCommand)
+        public void SetSeleniumCommand(params string[] commands)
         {
             var select = new SelectElement(formPage.Selenium_command);
-            select.SelectByValue(firstCommand);
-            select.SelectByValue(secondCommand);
+            foreach (var command in commands)
+            {
+                select.SelectByValue(command);
+            }
         }
         public void SetSelectFile()
         {
