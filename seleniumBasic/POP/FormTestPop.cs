@@ -7,32 +7,35 @@ namespace seleniumBasic.POP
 {
     public class FormTestPop : TestBase
     {
+        private FormPage formPage;
 
         public FormTestPop(ITestOutputHelper output) : base(output)
         {
-
+            
         }
+
 
         [Fact] //check "Form send with success"
         public void Successfully()
         {
-            var fillForm = new FormPage(driver);
+            var formPage = new FormPage(driver);
 
             driver.Navigate().GoToUrl("http://www.seleniumui.moderntester.pl/form.php");
 
-            fillForm.SetFirstName("Jan");
-            fillForm.SetLastName("Kowalski");
-            fillForm.SetEmail("mail@mail.com");
-            fillForm.SetSex();
-            fillForm.SetAge("18");
-            fillForm.SetRandomExperience();
-            fillForm.SelectRandomProfession();
-            fillForm.SelectContinent("Antarctica");
-            fillForm.SetSeleniumCommand("switch-commands", "webelement-commands");
-            fillForm.SetSelectFile();
-            fillForm.SetSubmit();
+
+            formPage.SetFirstName("Jan");
+            formPage.SetLastName("Kowalski");
+            formPage.SetEmail("mail@mail.com");
+            formPage.SetSex();
+            formPage.SetAge("18");
+            formPage.SetRandomExperience();
+            formPage.SelectRandomProfession();
+            formPage.SelectContinent("Antarctica");
+            formPage.SetSeleniumCommand("switch-commands", "webelement-commands");
+            formPage.SetSelectFile();
+            formPage.SetSubmit();
             var expectedMsg = "Form send with success";
-            Assert.Equal(fillForm.GetValidationMsg(), expectedMsg);
+            Assert.Equal(formPage.GetValidationMsg(), expectedMsg);
         }
     }
 }

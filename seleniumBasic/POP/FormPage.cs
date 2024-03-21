@@ -18,84 +18,90 @@ namespace seleniumBasic.POP
         }
 
         [FindsBy(How = How.Id, Using = "inputFirstName3")]
-        public IWebElement FirstName;
+        private IWebElement FirstName;
 
         [FindsBy(How = How.Id, Using = "inputLastName3")]
-        public IWebElement LastName;
+        private IWebElement LastName;
 
         [FindsBy(How = How.Id, Using = "inputEmail3")]
-        public IWebElement Email;
+        private IWebElement Email;
 
         [FindsBy(How = How.CssSelector, Using = "[name='gridRadiosSex']")]
-        public IList<IWebElement> Sex;
+        private IList<IWebElement> Sex;
 
         [FindsBy(How = How.Id, Using = "inputAge3")]
-        public IWebElement Age;
+        private IWebElement Age;
 
         [FindsBy(How = How.CssSelector, Using = "[name='gridRadiosExperience']")]
-        public IList<IWebElement> Experience;
+        private IList<IWebElement> Experience;
 
         [FindsBy(How = How.CssSelector, Using = "[name='gridCheckboxProfession']")]
-        public IList<IWebElement> Professions;
+        private IList<IWebElement> Professions;
 
         [FindsBy(How = How.CssSelector, Using = "#selectContinents *")]
-        public IList<IWebElement> Continents;
+        private IList<IWebElement> Continents;
 
         [FindsBy(How = How.Id, Using = "selectSeleniumCommands")]
-        public IWebElement Selenium_command;
+        private IWebElement Selenium_command;
 
         [FindsBy(How = How.CssSelector, Using = "input[type=file]")]
-        public IWebElement File;
+        private IWebElement File;
 
         [FindsBy(How = How.CssSelector, Using = "button[type='submit']")]
-        public IWebElement Submit;
+        private IWebElement Submit;
 
         [FindsBy(How = How.Id, Using = "validator-message")]
-        public IWebElement SuccessMessage;
+        private IWebElement SuccessMessage;
 
-
-
-        public void SetFirstName(string firstName)
+        public FormPage SetFirstName(string firstName)
         {
             FirstName.SendKeys(firstName);
+            return this;
         }
-        public void SetLastName(string lastName)
+        public FormPage SetLastName(string lastName)
         {
             LastName.SendKeys(lastName);
+            return this;
         }
-        public void SetEmail(string email)
+        public FormPage SetEmail(string email)
         {
             Email.SendKeys(email);
+            return this;
         }
-        public void SetSex()
+        public FormPage SetSex()
         {
             var count = Sex.Count();
             var r = new Random();
             var randomIndex = r.Next(0, count);
             Sex[randomIndex].Click();
+            return this;
         }
-        public void SetAge(string age)
+        public FormPage SetAge(string age)
         {
             Age.SendKeys(age);
+            return this;
         }
-        public void SetRandomExperience()
+        public FormPage SetRandomExperience()
         {
             var count = Experience.Count();
             var r = new Random();
             var randomIndex = r.Next(0, count);
             Experience[randomIndex].Click();
+            return this;
         }
-        public void SelectRandomProfession()
+        public FormPage SelectRandomProfession()
         {
             var count = Professions.Count();
             var r = new Random();
             var randomIndex = r.Next(0, count);
             Professions[randomIndex].Click();
+            return this;
         }
-        public void SelectContinent(string continent)
+        public FormPage SelectContinent(string continent)
         {
             var continentElement = Continents.FirstOrDefault(element => element.Text == continent);
             continentElement?.Click();
+            return this;
             //var allText = new string[_continents.Count];
 
             //for (int i = 0; i < _continents.Count; i++)
@@ -109,23 +115,26 @@ namespace seleniumBasic.POP
             //    }
             //}
         }
-        public void SetSeleniumCommand(params string[] commands)
+        public FormPage SetSeleniumCommand(params string[] commands)
         {
             var select = new SelectElement(Selenium_command);
             foreach (var command in commands)
             {
                 select.SelectByValue(command);
             }
+            return this;
         }
-        public void SetSelectFile()
+        public FormPage SetSelectFile()
         {
             var relativePath = Path.Combine("Fixtures", "file.jpg");
             var uploadFile = Path.GetFullPath(relativePath);
             File.SendKeys(uploadFile);
+            return this;
         }
-        public void SetSubmit()
+        public FormPage SetSubmit()
         {
             Submit.Click();
+            return this;
         }
         public string GetValidationMsg()
         {
