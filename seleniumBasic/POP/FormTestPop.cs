@@ -21,16 +21,16 @@ namespace seleniumBasic.POP
             driver.Navigate().GoToUrl("http://www.seleniumui.moderntester.pl/form.php");
 
             formPage.SetFirstName("Jan")
-                .SetLastName("Kowalski")
-                .SetEmail("mail@mail.com")
-                .SetSex()
-                .SetAge("18")
-                .SetRandomExperience()
-                .SelectRandomProfession()
-                .SelectContinent("Antarctica")
-                .SetSeleniumCommand("switch-commands", "webelement-commands")
-                .SetSelectFile()
-                .SetSubmit();
+                    .SetLastName("Kowalski")
+                    .SetEmail("mail@mail.com")
+                    .SetSex()
+                    .SetAge("18")
+                    .SetRandomExperience()
+                    .SelectRandomProfession()
+                    .SelectContinent("Antarctica")
+                    .SetSeleniumCommand("switch-commands", "webelement-commands")
+                    .SetSelectFile()
+                    .SetSubmit();
             var expectedMsg = "Form send with success";
             Assert.Equal(formPage.GetValidationMsg(), expectedMsg);
         }
