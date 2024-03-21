@@ -11,7 +11,7 @@ namespace seleniumBasic.POP
 
     public class FormPage
     {
-        
+
         public FormPage(IWebDriver driver)
         {
             PageFactory.InitElements(driver, this);
@@ -70,10 +70,7 @@ namespace seleniumBasic.POP
         }
         public FormPage SetSex()
         {
-            var count = Sex.Count();
-            var r = new Random();
-            var randomIndex = r.Next(0, count);
-            Sex[randomIndex].Click();
+            RandomlySelectElementFromList(Sex);
             return this;
         }
         public FormPage SetAge(string age)
@@ -83,18 +80,12 @@ namespace seleniumBasic.POP
         }
         public FormPage SetRandomExperience()
         {
-            var count = Experience.Count();
-            var r = new Random();
-            var randomIndex = r.Next(0, count);
-            Experience[randomIndex].Click();
+            RandomlySelectElementFromList(Experience);
             return this;
         }
         public FormPage SelectRandomProfession()
         {
-            var count = Professions.Count();
-            var r = new Random();
-            var randomIndex = r.Next(0, count);
-            Professions[randomIndex].Click();
+            RandomlySelectElementFromList(Professions);
             return this;
         }
         public FormPage SelectContinent(string continent)
@@ -102,18 +93,6 @@ namespace seleniumBasic.POP
             var continentElement = Continents.FirstOrDefault(element => element.Text == continent);
             continentElement?.Click();
             return this;
-            //var allText = new string[_continents.Count];
-
-            //for (int i = 0; i < _continents.Count; i++)
-            //{
-            //    var currentElement = _continents[i];
-            //    allText[i] = currentElement.Text;
-            //    if (string.Equals(allText[i], continent)
-            //    {
-            //        currentElement.Click();
-            //        break;
-            //    }
-            //}
         }
         public FormPage SetSeleniumCommand(params string[] commands)
         {
@@ -139,6 +118,12 @@ namespace seleniumBasic.POP
         public string GetValidationMsg()
         {
             return SuccessMessage.Text;
+        }
+        private void RandomlySelectElementFromList(IList<IWebElement> elements)
+        {
+            var count = elements.Count();
+            var randomIndex = new Random().Next(0, count);
+            elements[randomIndex].Click();
         }
     }
 }
