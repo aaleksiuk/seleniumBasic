@@ -72,9 +72,12 @@
     <Compile Include="Interactions\Sortable.cs" />
     <Compile Include="Other\DemoQa.cs" />
     <Compile Include="Other\HighSite.cs" />
-    <Compile Include="POP\FormPage.cs" />
-    <Compile Include="POP\FormTest.cs" />
-    <Compile Include="POP\FormTestPop.cs" />
+    <Compile Include="POP\Form\FormPage.cs" />
+    <Compile Include="POP\Form\FormTest.cs" />
+    <Compile Include="POP\Form\FormTestPop.cs" />
+    <Compile Include="POP\Table\RowPage.cs" />
+    <Compile Include="POP\Table\TablePage.cs" />
+    <Compile Include="POP\Table\TableTestPop.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Basic\Tables.cs" />
     <Compile Include="TestBase.cs" />

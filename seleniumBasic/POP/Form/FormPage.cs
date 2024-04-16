@@ -8,10 +8,8 @@ using System.Linq;
 
 namespace seleniumBasic.POP
 {
-
     public class FormPage
     {
-
         public FormPage(IWebDriver driver)
         {
             PageFactory.InitElements(driver, this);
@@ -115,10 +113,8 @@ namespace seleniumBasic.POP
             Submit.Click();
             return this;
         }
-        public string GetValidationMsg()
-        {
-            return SuccessMessage.Text;
-        }
+        public string GetValidationMsg() => SuccessMessage.Text;
+
         private void RandomlySelectElementFromList(IList<IWebElement> elements)
         {
             var count = elements.Count();
