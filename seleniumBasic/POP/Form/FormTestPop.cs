@@ -1,4 +1,5 @@
-﻿using SeleniumBasic;
+﻿using seleniumBasic.POP.Form;
+using SeleniumBasic;
 using Xunit;
 using Xunit.Abstractions;
 
@@ -16,11 +17,12 @@ namespace seleniumBasic.POP
         [Fact] //check "Form send with success"
         public void Successfully()
         {
-            var formPage = new FormPage(driver);
+            //var formPage = new FormPage(driver);
+            var lepszyFormPage = new LepszyFormPage(driver);
 
             driver.Navigate().GoToUrl("http://www.seleniumui.moderntester.pl/form.php");
 
-            formPage.SetFirstName("Jan")
+            lepszyFormPage.SetFirstName("Jan")
                     .SetLastName("Kowalski")
                     .SetEmail("mail@mail.com")
                     .SetSex()
@@ -32,7 +34,7 @@ namespace seleniumBasic.POP
                     .SetSelectFile()
                     .SetSubmit();
             var expectedMsg = "Form send with success";
-            Assert.Equal(formPage.GetValidationMsg(), expectedMsg);
+            Assert.Equal(lepszyFormPage.GetValidationMsg(), expectedMsg);
         }
     }
 }

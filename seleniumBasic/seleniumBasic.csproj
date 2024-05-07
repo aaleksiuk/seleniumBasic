@@ -21,6 +21,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <LangVersion>preview</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -29,6 +30,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <LangVersion>preview</LangVersion>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -66,6 +68,7 @@
     <Compile Include="Basic\Alerts.cs" />
     <Compile Include="Basic\FillForm.cs" />
     <Compile Include="Basic\Iframes.cs" />
+    <Compile Include="Extensions\WebDriverExtensions.cs" />
     <Compile Include="Interactions\Draggable.cs" />
     <Compile Include="Interactions\Droppable.cs" />
     <Compile Include="Interactions\Resizable.cs" />
@@ -75,6 +78,7 @@
     <Compile Include="POP\Form\FormPage.cs" />
     <Compile Include="POP\Form\FormTest.cs" />
     <Compile Include="POP\Form\FormTestPop.cs" />
+    <Compile Include="POP\Form\LepszyFormPage.cs" />
     <Compile Include="POP\Table\RowPage.cs" />
     <Compile Include="POP\Table\TablePage.cs" />
     <Compile Include="POP\Table\TableTestPop.cs" />
