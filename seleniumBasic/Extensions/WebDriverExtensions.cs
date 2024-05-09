@@ -1,10 +1,8 @@
 ﻿using OpenQA.Selenium;
+using OpenQA.Selenium.Support.UI;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace seleniumBasic.Extensions
 {
@@ -12,13 +10,32 @@ namespace seleniumBasic.Extensions
     {
         public static IWebElement WaitAndFind(this IWebDriver driver, By by)
         {
-            // poczekaj aż ten element będzie visible Z LAMBDĄ
-            return driver.FindElement(by);
+            var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
+            try
+            {
+                return wait.Until(d => d.FindElement(by).Displayed ? d.FindElement(by) : throw new NoSuchElementException());
+            }
+            catch (NoSuchElementException)
+            {
+                throw new NoSuchElementException($"Element with locator '{by}' was not found within the specified timeout.");
+            }
         }
         public static List<IWebElement> WaitAndFindAll(this IWebDriver driver, By by)
         {
-            // poczekaj aż count > 0 z LAMDBĄ
-            return driver.FindElements(by).ToList();
+            var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
+
+            try
+            {
+                return wait.Until(d =>
+                {
+                    var elements = d.FindElements(by).ToList();
+                    return elements.Any(e => e.Displayed) ? elements : throw new NoSuchElementException();
+                });
+            }
+            catch (NoSuchElementException)
+            {
+                throw new NoSuchElementException($"Element with locator '{by}' was not found within the specified timeout.");
+            }
         }
     }
 }
