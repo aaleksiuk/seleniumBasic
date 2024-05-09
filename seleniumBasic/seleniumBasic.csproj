@@ -79,7 +79,9 @@
     <Compile Include="POP\Form\FormTest.cs" />
     <Compile Include="POP\Form\FormTestPop.cs" />
     <Compile Include="POP\Form\LepszyFormPage.cs" />
+    <Compile Include="POP\Table\LepszyRowPage.cs" />
     <Compile Include="POP\Table\RowPage.cs" />
+    <Compile Include="POP\Table\LepszyTablePage.cs" />
     <Compile Include="POP\Table\TablePage.cs" />
     <Compile Include="POP\Table\TableTestPop.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -1,10 +1,9 @@
 ﻿using FluentAssertions;
-using seleniumBasic.POP.Table;
 using SeleniumBasic;
 using Xunit;
 using Xunit.Abstractions;
 
-namespace seleniumBasic.POP
+namespace seleniumBasic.POP.Table
 {
     public class TableTestPop : TestBase
     {
@@ -18,7 +17,8 @@ namespace seleniumBasic.POP
         {
             driver.Navigate().GoToUrl("http://www.seleniumui.moderntester.pl/table.php");
 
-            var rows = new TablePage(driver).GetRows();
+            //var rows = new TablePage(driver).GetRows();
+            var rows = new LepszyTablePage(driver).GetRows();
 
             var definedCountry = "Switzerland";
             var definedHeight = 4000;
@@ -27,7 +27,7 @@ namespace seleniumBasic.POP
             {
                 if (row.GetHeight() > definedHeight && row.GetState().Contains(definedCountry))
                 {
-                    output.WriteLine(row.GetRank() +" " + row.GetPeak() + " " + row.GetHeight());
+                    output.WriteLine(row.GetRank() + " " + row.GetPeak() + " " + row.GetHeight());
                 }
             }
         }
