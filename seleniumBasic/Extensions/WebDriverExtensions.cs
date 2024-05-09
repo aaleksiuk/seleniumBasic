@@ -29,7 +29,7 @@ namespace seleniumBasic.Extensions
                 return wait.Until(d =>
                 {
                     var elements = d.FindElements(by).ToList();
-                    return elements.Any(e => e.Displayed) ? elements : throw new NoSuchElementException();
+                    return elements.Any(e => e.Displayed) ? elements : throw new NoSuchElementException($"Element with locator '{by}' was not found within the specified timeout.");
                 });
             }
             catch (NoSuchElementException)
