@@ -13,7 +13,8 @@ namespace seleniumBasic.Extensions
             var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
             try
             {
-                return wait.Until(d => d.FindElement(by).Displayed ? d.FindElement(by) : throw new NoSuchElementException($"Element with locator '{by}' was not found"));
+                return wait.Until(d =>
+                d.FindElement(by).Displayed ? d.FindElement(by) : throw new NoSuchElementException($"Element with locator '{by}' was not found"));
             }
             catch (NoSuchElementException)
             {

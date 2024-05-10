@@ -3,13 +3,13 @@ using seleniumBasic.Extensions;
 
 namespace seleniumBasic.POP.Table
 {
-    public class LepszyRowPage(IWebDriver driver)
+    public class LepszyRowPage(IWebDriver parent)
     {
-        private IWebElement Rank => driver.WaitAndFind(By.XPath("th"));
-        private IWebElement Peak => driver.WaitAndFind(By.XPath("./td[1]"));
-        private IWebElement MountainRange => driver.WaitAndFind(By.XPath("./td[2]"));
-        private IWebElement State => driver.WaitAndFind(By.XPath("./td[3]"));
-        private IWebElement Height => driver.WaitAndFind(By.XPath("./td[4]"));
+        private IWebElement Rank => parent.WaitAndFind(By.XPath("th"));
+        private IWebElement Peak => parent.WaitAndFind(By.XPath("./td[1]"));
+        private IWebElement MountainRange => parent.WaitAndFind(By.XPath("./td[2]"));
+        private IWebElement State => parent.WaitAndFind(By.XPath("./td[3]"));
+        private IWebElement Height => parent.WaitAndFind(By.XPath("./td[4]"));
 
         public string GetRank() => Rank.Text;
         public string GetPeak() => Peak.Text;

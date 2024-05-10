@@ -22,7 +22,11 @@ namespace seleniumBasic.POP.Form
         private IList<IWebElement> Professions => driver.WaitAndFindAll(By.CssSelector("[name='gridCheckboxProfession']"));
         private IList<IWebElement> Continents => driver.WaitAndFindAll(By.CssSelector("#selectContinents *"));
         private IWebElement Selenium_command => driver.WaitAndFind(By.Id("selectSeleniumCommands"));
-        private IWebElement File => driver.WaitAndFind(By.CssSelector("input[type=file]"));
+        private IWebElement File => driver.FindElement(By.CssSelector("input[type=file]"));
+
+        //[FindsBy(How = How.CssSelector, Using = "input[type=file]")]
+        //private IWebElement File;
+
         private IWebElement Submit => driver.WaitAndFind(By.CssSelector("button[type='submit']"));
         private IWebElement SuccessMessage => driver.WaitAndFind(By.Id("validator-message"));
 
